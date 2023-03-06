@@ -8,6 +8,13 @@ const userSchema = new mongoose.Schema({
     Email: {type: String, required: true, unique},
     Password: {type: String, required: true},
     DisplayPhoto: {type: String, },
-    DOJ: {type: Date, default: Date.now()}
+    DOJ: {type: Date, default: Date.now()},
+    Followers: [{type: String}],
+    Following: [{type: String}]
 
 })
+
+const userCollection = mongoose.model("user",userSchema);
+
+
+module.exports = userCollection;

@@ -1,0 +1,46 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Friend Friend</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="./style/style.css" title="style" />
+</head>
+
+<body>
+  <div id="main">
+    {{>header}}
+      
+    <div id="site_content">
+      {{>sidebar}}
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Register</h1>
+        <form method="post" action="/register" enctype="multipart/form-data">
+        <P>Enter your first name</P>
+        <p><input type="text" name="FName" id="FName" required></p>
+        <P>Enter your Last name</P>
+        <p><input type="text" name="LName" id="LName" required></p>
+        <P>Enter Email (should be unique)</P>
+        <p><input type="email" name="Email" id="Email" required></p>
+        <P>Password</P>
+        <p><input type="password" name="Password" id="Password" required></p>
+        <P>Confirm Password</P>
+        <p><input type="password" name="CPAssword" id="CPassword" required></p>
+        <P></P>
+        <p><input type="file" name="DP" id="DP" required></p>
+        <P></P>
+        <p><input type="submit" name="submit" id="submit"></p>
+        </form>
+        
+        
+      </div>
+    </div>
+    <div id="footer">
+      Copyright &copy; black_pink_white | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | from <a href="http://www.html5webtemplates.co.uk">free HTML5 templates</a>
+    </div>
+  </div>
+</body>
+</html>

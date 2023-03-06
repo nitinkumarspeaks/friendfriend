@@ -9,5 +9,17 @@ Router.get("/",(req,res)=>{
     res.render("user/index");
 })
 
+Router.get("/register",(req,res)=>{
+    res.render("user/register");
+})
+
+Router.post("/register",(req,res)=>{
+    //res.render("user/index");
+})
+
+Router.get("/login",(req,res)=>{
+    res.render("user/login");
+})
+
 
 module.exports = Router;
