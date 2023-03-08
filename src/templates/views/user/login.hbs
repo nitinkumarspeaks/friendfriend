@@ -19,12 +19,12 @@
       <div id="content">
         <!-- insert the page content here -->
         <h1>Register</h1>
-        <form method="post" action="/login" enctype="multipart/form-data">
+        <form method="post" action="/login" >
         <P>Enter Email</P>
         <p><input type="text" name="Email" id="Email" required></p>
         <P>Enter password</P>
         <p><input type="password" name="Password" id="Password" required></p>
-        <p {{errMsg}}></p>
+        <p></p> {{errMsg}}</p>
         <p><input type="submit" name="submit" id="submit"> </p>
 
         

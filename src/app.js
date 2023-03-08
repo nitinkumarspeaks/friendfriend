@@ -21,6 +21,8 @@ console.log(publicPath)
 app.use(express.static(publicPath));
 app.set("view engine", "hbs"); // declaration of using handle bar view engine
 app.set("views","src/templates/views"); // settign the path of view engine root folder
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 hbs.registerPartials(path.join(__dirname,"./templates/partials"))
 
 app.use("/",userRouter)
