@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // Creating schema
-const requestSchema = new mongoose.schema({
+const requestSchema = new mongoose.Schema({
 
     SentBy: {type: String, required: true},
     Receiver: {type: String, required: true},

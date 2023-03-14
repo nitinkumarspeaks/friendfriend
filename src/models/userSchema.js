@@ -2,6 +2,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // creating schema/ table structure
 const userSchema = new mongoose.Schema({
@@ -25,10 +27,10 @@ userSchema.methods.genAuthToken = async function()
 {
     try {
 
-        const token =  jwt.sign({id:this._id.toString()},process.ENV.SECERET_KEY);
-    this.tokens = this.tokens.concat(token);
-    await this.save();
-    return token;
+        const token =  jwt.sign({id:this._id.toString()},process.env.SECERET_KEY);
+        this.tokens = this.tokens.concat(token);
+        await this.save();
+        return token;
         
     } catch (error) {
         console.log(error)

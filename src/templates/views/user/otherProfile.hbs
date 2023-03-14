@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,33 +6,34 @@
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <link rel="stylesheet" type="text/css" href="./style/style.css" title="style" />
+  <link rel="stylesheet" type="text/css" href="/style/style.css" title="style" />
 </head>
 
 <body>
   <div id="main">
     {{>header}}
-      
     <div id="site_content">
       {{>sidebar}}
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Login</h1>
-        <form method="post" action="/login" >
-        <P>Enter Email</P>
-        <p><input type="text" name="Email" id="Email" required></p>
-        <P>Enter password</P>
-        <p><input type="password" name="Password" id="Password" required></p>
-        <p></p> {{errMsg}}</p>
-        <p><input type="submit" name="submit" id="submit"> </p>
-
+        {{#if userData}}
+        <h1><form method="post" action="/{{actionPageValue}}/{{userData._id}}"><input type="submit"
+         name="SentRequest" id="SentRequest" value="{{friendButtonValue}}"></form></h1>
+         <table>
+          <tr>
+            <td><img src="/data/DP/{{userData.DisplayPhoto}}" width="200px" height="150px"></td>
+            <td><table>
+              <tr><td>{{userData.FirstName}} {{userData.LastName}}</td></tr>
+              <tr><td>Joined on</td></tr>
+              <tr><td>{{userData.DOJ}}</td></tr>
+            </table></td>
+          </tr>
+         </table>
+         {{else}}
+         <p>{{errMsg}}</p>
+         {{/if}}
         
-        
-        
-        
-        </form>
-        
-        
+          
       </div>
     </div>
     <div id="footer">

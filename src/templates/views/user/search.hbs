@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -13,27 +12,30 @@
 <body>
   <div id="main">
     {{>header}}
-      
     <div id="site_content">
       {{>sidebar}}
       <div id="content">
         <!-- insert the page content here -->
-        <h1>Login</h1>
-        <form method="post" action="/login" >
-        <P>Enter Email</P>
-        <p><input type="text" name="Email" id="Email" required></p>
-        <P>Enter password</P>
-        <p><input type="password" name="Password" id="Password" required></p>
-        <p></p> {{errMsg}}</p>
-        <p><input type="submit" name="submit" id="submit"> </p>
+        {{#if searchdata}}
+        <table>
+          <tr>
+          <th>User Name</th>
+          <th>Visit Profile</th>
+          
+          </tr>
+          {{#each searchdata}}
+          
+          <tr>
+          <td>{{this.FirstName }}{{this.LastName}}</td>
+          <td><a href="/otherProfile/{{this._id}}" target="_blank" style="color: blue;">visit profile </a> </th>
+                   
+          </tr>
 
         
-        
-        
-        
-        </form>
-        
-        
+        {{/each}}
+        </table>
+        {{/if}}
+        </div>
       </div>
     </div>
     <div id="footer">

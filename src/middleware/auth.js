@@ -1,6 +1,8 @@
-const jwt = require("jsonwebtoken")
-const userCollection = require("../models/userSchema")
-const cookieParser = require("cookie-parser")
+const jwt = require("jsonwebtoken");
+const userCollection = require("../models/userSchema");
+const cookieParser = require("cookie-parser");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const Auth = async (req, res, next)=>
 {
@@ -12,12 +14,12 @@ const Auth = async (req, res, next)=>
             return res.redirect('login');
         }
 
-        const verifyUser = jwt.verify(token,SECERET_KEY)
-        console.log("auth page")
-        console.log(verifyUser)
-        console.log(token)
+        const verifyUser = jwt.verify(token,process.env.SECERET_KEY)
+        //console.log("auth page")
+        //console.log(verifyUser)
+        //console.log(token)
         const userData = await userCollection.findById({_id:verifyUser.id})
-        console.log(userData)
+        //console.log(userData)
         req.token = token
         req.user = userData
         next()
